@@ -6,7 +6,8 @@ from normalize import normalize
 
 def handle_media(file_name: Path, target_folder: Path):
     target_folder.mkdir(exist_ok=True, parents=True)
-    file_name.replace(target_folder / normalize(file_name.name))
+    normalized_name = normalize(file_name.stem) + file_name.suffix
+    file_name.replace(target_folder / normalized_name)
 
 def handle_archive(file_name: Path, target_folder: Path):
     target_folder.mkdir(exist_ok=True, parents=True)
